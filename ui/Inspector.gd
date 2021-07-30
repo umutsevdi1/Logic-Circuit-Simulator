@@ -6,6 +6,9 @@ var node : GraphNode = null
 func _ready() -> void:
 	reset_node()
 
+func show_ui() -> void:
+	self.visible=true
+
 func set_node(obj) -> void:
 	var is_same:bool = obj==node
 	self.node=obj

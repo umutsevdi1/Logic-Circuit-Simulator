@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.160784, 0.176471, 0.2, 1 )
+
+[node name="Instance" type="Label"]
+margin_right = 60.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 60, 20 )
+custom_styles/normal = SubResource( 1 )
+text = "1"
+align = 1
+valign = 1
+clip_text = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

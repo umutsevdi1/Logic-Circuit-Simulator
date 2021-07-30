@@ -1,5 +1,6 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=38 format=2]
 
+[ext_resource path="res://ui/Truth Table.gd" type="Script" id=1]
 [ext_resource path="res://ui/RightTab.gd" type="Script" id=2]
 [ext_resource path="res://assets/Icons/new/object.png" type="Texture" id=3]
 [ext_resource path="res://assets/Icons/new/truth_table.png" type="Texture" id=4]
@@ -11,7 +12,15 @@
 [ext_resource path="res://assets/themes/button_pressed.tres" type="StyleBox" id=10]
 [ext_resource path="res://assets/themes/VectorProperty.tres" type="StyleBox" id=11]
 [ext_resource path="res://assets/Icons/new/search.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Icons/GuiHsplitter.svg" type="Texture" id=13]
+[ext_resource path="res://assets/themes/textbutton_hover.tres" type="StyleBox" id=14]
+[ext_resource path="res://Assets/Icons/ActionCopy.svg" type="Texture" id=15]
+[ext_resource path="res://assets/themes/button_hover.tres" type="StyleBox" id=16]
 [ext_resource path="res://ui/Inspector.gd" type="Script" id=17]
+[ext_resource path="res://Assets/Icons/AssetLib.svg" type="Texture" id=18]
+[ext_resource path="res://Assets/Icons/EditKey.svg" type="Texture" id=19]
+[ext_resource path="res://Assets/Icons/Clear.svg" type="Texture" id=20]
+[ext_resource path="res://Assets/Icons/PlayCustom.svg" type="Texture" id=21]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.2, 0.219608, 0.258824, 1 )
@@ -82,6 +91,11 @@ bg_color = Color( 0.317647, 0.333333, 0.356863, 1 )
 draw_center = false
 border_width_bottom = 2
 border_color = Color( 0.439216, 0.501961, 0.537255, 1 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+content_margin_left = 0.0
+content_margin_right = 0.0
+bg_color = Color( 0.160784, 0.176471, 0.2, 1 )
 
 [node name="RightTab" type="Control"]
 anchor_left = 1.0
@@ -208,11 +222,12 @@ __meta__ = {
 }
 
 [node name="Inspector" type="VBoxContainer" parent="TabSelection/Tabs"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -164.0
+margin_left = -165.0
 margin_top = 38.0
-margin_right = 161.0
+margin_right = 165.0
 margin_bottom = 854.0
 custom_constants/separation = 3
 script = ExtResource( 17 )
@@ -221,7 +236,7 @@ __meta__ = {
 }
 
 [node name="ObjectName" type="LineEdit" parent="TabSelection/Tabs/Inspector"]
-margin_right = 325.0
+margin_right = 330.0
 margin_bottom = 30.0
 focus_mode = 1
 custom_styles/normal = SubResource( 8 )
@@ -236,14 +251,14 @@ __meta__ = {
 
 [node name="Id" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
 margin_top = 33.0
-margin_right = 325.0
+margin_right = 330.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 alignment = 1
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Id"]
-margin_left = 10.0
-margin_right = 160.0
+margin_left = 13.0
+margin_right = 163.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
 custom_styles/normal = SubResource( 11 )
@@ -251,9 +266,9 @@ text = "Id  :"
 valign = 1
 
 [node name="Value" type="Label" parent="TabSelection/Tabs/Inspector/Id"]
-margin_left = 164.0
+margin_left = 167.0
 margin_top = 2.0
-margin_right = 314.0
+margin_right = 317.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 150, 25 )
 text = "1764866"
@@ -262,14 +277,14 @@ valign = 1
 
 [node name="Type" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
 margin_top = 66.0
-margin_right = 325.0
+margin_right = 330.0
 margin_bottom = 96.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 alignment = 1
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Type"]
-margin_left = 10.0
-margin_right = 160.0
+margin_left = 13.0
+margin_right = 163.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
 custom_styles/normal = SubResource( 11 )
@@ -277,9 +292,9 @@ text = "Type  :"
 valign = 1
 
 [node name="Value" type="Label" parent="TabSelection/Tabs/Inspector/Type"]
-margin_left = 164.0
+margin_left = 167.0
 margin_top = 2.0
-margin_right = 314.0
+margin_right = 317.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 150, 25 )
 text = "AND"
@@ -288,15 +303,15 @@ valign = 1
 
 [node name="Value" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
 margin_top = 99.0
-margin_right = 325.0
+margin_right = 330.0
 margin_bottom = 124.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 alignment = 1
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Value"]
-margin_left = 10.0
+margin_left = 13.0
 margin_top = 2.0
-margin_right = 160.0
+margin_right = 163.0
 margin_bottom = 23.0
 rect_min_size = Vector2( 150, 20 )
 custom_styles/normal = SubResource( 11 )
@@ -304,8 +319,8 @@ text = "Value :"
 valign = 1
 
 [node name="Value" type="Button" parent="TabSelection/Tabs/Inspector/Value"]
-margin_left = 164.0
-margin_right = 314.0
+margin_left = 167.0
+margin_right = 317.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 150, 25 )
 focus_mode = 0
@@ -318,14 +333,14 @@ enabled_focus_mode = 0
 
 [node name="Interval" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
 margin_top = 127.0
-margin_right = 325.0
+margin_right = 330.0
 margin_bottom = 157.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 alignment = 1
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Interval"]
-margin_left = 10.0
-margin_right = 160.0
+margin_left = 13.0
+margin_right = 163.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
 custom_styles/normal = SubResource( 11 )
@@ -333,8 +348,8 @@ text = "Interval :"
 valign = 1
 
 [node name="Value" type="LineEdit" parent="TabSelection/Tabs/Inspector/Interval"]
-margin_left = 164.0
-margin_right = 314.0
+margin_left = 167.0
+margin_right = 317.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 25 )
 focus_mode = 1
@@ -347,14 +362,14 @@ caret_blink = true
 
 [node name="Legs" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
 margin_top = 160.0
-margin_right = 325.0
+margin_right = 330.0
 margin_bottom = 190.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 alignment = 1
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Legs"]
-margin_left = 10.0
-margin_right = 160.0
+margin_left = 13.0
+margin_right = 163.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
 custom_styles/normal = SubResource( 11 )
@@ -362,8 +377,8 @@ text = "Legs : "
 valign = 1
 
 [node name="Value" type="LineEdit" parent="TabSelection/Tabs/Inspector/Legs"]
-margin_left = 164.0
-margin_right = 314.0
+margin_left = 167.0
+margin_right = 317.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 25 )
 focus_mode = 1
@@ -376,14 +391,14 @@ caret_blink = true
 
 [node name="Position_x" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
 margin_top = 193.0
-margin_right = 325.0
+margin_right = 330.0
 margin_bottom = 223.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 alignment = 1
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Position_x"]
-margin_left = 11.0
-margin_right = 161.0
+margin_left = 13.0
+margin_right = 163.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
 custom_styles/normal = SubResource( 11 )
@@ -391,8 +406,8 @@ text = "Position :"
 valign = 1
 
 [node name="property" type="Label" parent="TabSelection/Tabs/Inspector/Position_x"]
-margin_left = 165.0
-margin_right = 195.0
+margin_left = 167.0
+margin_right = 197.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 30, 30 )
 custom_styles/normal = ExtResource( 11 )
@@ -401,8 +416,8 @@ align = 1
 valign = 1
 
 [node name="Value" type="LineEdit" parent="TabSelection/Tabs/Inspector/Position_x"]
-margin_left = 199.0
-margin_right = 314.0
+margin_left = 201.0
+margin_right = 316.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 115, 25 )
 focus_mode = 1
@@ -413,22 +428,22 @@ caret_blink = true
 
 [node name="Position_y" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
 margin_top = 226.0
-margin_right = 325.0
+margin_right = 330.0
 margin_bottom = 256.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 alignment = 1
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Position_y"]
-margin_left = 11.0
-margin_right = 161.0
+margin_left = 13.0
+margin_right = 163.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
 custom_styles/normal = SubResource( 11 )
 valign = 1
 
 [node name="property" type="Label" parent="TabSelection/Tabs/Inspector/Position_y"]
-margin_left = 165.0
-margin_right = 195.0
+margin_left = 167.0
+margin_right = 197.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 30, 30 )
 custom_styles/normal = SubResource( 12 )
@@ -437,8 +452,8 @@ align = 1
 valign = 1
 
 [node name="Value" type="LineEdit" parent="TabSelection/Tabs/Inspector/Position_y"]
-margin_left = 199.0
-margin_right = 314.0
+margin_left = 201.0
+margin_right = 316.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 115, 25 )
 focus_mode = 1
@@ -449,13 +464,13 @@ caret_blink = true
 
 [node name="IO" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
 margin_top = 259.0
-margin_right = 325.0
+margin_right = 330.0
 margin_bottom = 521.0
 alignment = 1
 
 [node name="List" type="VBoxContainer" parent="TabSelection/Tabs/Inspector/IO"]
-margin_left = 10.0
-margin_right = 315.0
+margin_left = 12.0
+margin_right = 317.0
 margin_bottom = 262.0
 rect_min_size = Vector2( 305, 0 )
 
@@ -497,14 +512,14 @@ __meta__ = {
 
 [node name="Source" type="HBoxContainer" parent="TabSelection/Tabs/Inspector"]
 margin_top = 524.0
-margin_right = 325.0
+margin_right = 330.0
 margin_bottom = 554.0
 rect_pivot_offset = Vector2( -746.893, 95.2158 )
 alignment = 1
 
 [node name="Label" type="Label" parent="TabSelection/Tabs/Inspector/Source"]
-margin_left = 10.0
-margin_right = 160.0
+margin_left = 13.0
+margin_right = 163.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
 custom_styles/normal = SubResource( 11 )
@@ -512,8 +527,8 @@ text = "Source :"
 valign = 1
 
 [node name="Value" type="Button" parent="TabSelection/Tabs/Inspector/Source"]
-margin_left = 164.0
-margin_right = 314.0
+margin_left = 167.0
+margin_right = 317.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 25 )
 focus_mode = 0
@@ -528,9 +543,218 @@ clip_text = true
 [node name="Timer" type="Timer" parent="TabSelection/Tabs/Inspector"]
 wait_time = 0.25
 
+[node name="Truth Table" type="VBoxContainer" parent="TabSelection/Tabs"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -165.0
+margin_top = 38.0
+margin_right = 164.0
+margin_bottom = 854.0
+custom_constants/separation = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabName" type="Label" parent="TabSelection/Tabs/Truth Table"]
+margin_right = 329.0
+margin_bottom = 30.0
+focus_mode = 1
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.756863, 0.772549, 0.796078, 1 )
+text = "Tab Name"
+
+[node name="Type" type="HBoxContainer" parent="TabSelection/Tabs/Truth Table"]
+margin_top = 33.0
+margin_right = 329.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( -746.893, 95.2158 )
+alignment = 1
+
+[node name="Label" type="Label" parent="TabSelection/Tabs/Truth Table/Type"]
+margin_left = 12.0
+margin_right = 162.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 150, 30 )
+custom_styles/normal = SubResource( 11 )
+text = "Type  :"
+valign = 1
+
+[node name="Value" type="Label" parent="TabSelection/Tabs/Truth Table/Type"]
+margin_left = 166.0
+margin_top = 2.0
+margin_right = 316.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 150, 25 )
+text = "Scene"
+align = 1
+valign = 1
+
+[node name="TableName" type="HBoxContainer" parent="TabSelection/Tabs/Truth Table"]
+margin_top = 66.0
+margin_right = 329.0
+margin_bottom = 96.0
+alignment = 1
+
+[node name="Calculate" type="Label" parent="TabSelection/Tabs/Truth Table/TableName"]
+margin_left = 9.0
+margin_right = 319.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 310, 30 )
+custom_styles/normal = ExtResource( 9 )
+text = "Truth Table"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="ContentBox" type="HBoxContainer" parent="TabSelection/Tabs/Truth Table"]
+margin_top = 99.0
+margin_right = 329.0
+margin_bottom = 429.0
+alignment = 1
+
+[node name="Content" type="TextEdit" parent="TabSelection/Tabs/Truth Table/ContentBox"]
+margin_left = 9.0
+margin_right = 319.0
+margin_bottom = 330.0
+rect_min_size = Vector2( 310, 330 )
+custom_icons/tab = ExtResource( 13 )
+custom_styles/read_only = SubResource( 16 )
+readonly = true
+draw_tabs = true
+draw_spaces = true
+smooth_scrolling = true
+
+[node name="ElementDetails" type="HBoxContainer" parent="TabSelection/Tabs/Truth Table"]
+margin_top = 432.0
+margin_right = 329.0
+margin_bottom = 454.0
+alignment = 1
+
+[node name="Label" type="Label" parent="TabSelection/Tabs/Truth Table/ElementDetails"]
+margin_left = 10.0
+margin_right = 115.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 105, 0 )
+text = " Gate Key :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="TabSelection/Tabs/Truth Table/ElementDetails"]
+margin_left = 119.0
+margin_right = 319.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 200, 0 )
+custom_styles/read_only = ExtResource( 14 )
+custom_styles/normal = ExtResource( 9 )
+align = 1
+placeholder_text = "Gate Name"
+
+[node name="Element" type="HBoxContainer" parent="TabSelection/Tabs/Truth Table"]
+margin_top = 457.0
+margin_right = 329.0
+margin_bottom = 482.0
+alignment = 1
+
+[node name="LineEdit" type="Label" parent="TabSelection/Tabs/Truth Table/Element"]
+margin_left = 10.0
+margin_top = 2.0
+margin_right = 115.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 105, 0 )
+align = 1
+
+[node name="insert" type="Button" parent="TabSelection/Tabs/Truth Table/Element"]
+margin_left = 119.0
+margin_right = 214.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 95, 25 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 16 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+enabled_focus_mode = 0
+text = "Insert"
+icon = ExtResource( 19 )
+
+[node name="delete" type="Button" parent="TabSelection/Tabs/Truth Table/Element"]
+margin_left = 218.0
+margin_right = 318.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 100, 25 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 16 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+enabled_focus_mode = 0
+text = "Remove"
+icon = ExtResource( 20 )
+
+[node name="Calculate" type="HBoxContainer" parent="TabSelection/Tabs/Truth Table"]
+margin_top = 485.0
+margin_right = 329.0
+margin_bottom = 515.0
+alignment = 1
+
+[node name="Calculate" type="Button" parent="TabSelection/Tabs/Truth Table/Calculate"]
+margin_left = 9.0
+margin_right = 319.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 310, 30 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 16 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/disabled = ExtResource( 8 )
+custom_styles/normal = ExtResource( 9 )
+enabled_focus_mode = 0
+text = "Calculate"
+icon = ExtResource( 21 )
+clip_text = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabSelection/Tabs/Truth Table"]
+margin_top = 518.0
+margin_right = 329.0
+margin_bottom = 548.0
+alignment = 1
+
+[node name="Copy to Clipboard" type="Button" parent="TabSelection/Tabs/Truth Table/HBoxContainer"]
+margin_left = 7.0
+margin_right = 162.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 155, 30 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 16 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/disabled = ExtResource( 8 )
+custom_styles/normal = ExtResource( 9 )
+enabled_focus_mode = 0
+text = "Copy"
+icon = ExtResource( 15 )
+clip_text = true
+
+[node name="Download" type="Button" parent="TabSelection/Tabs/Truth Table/HBoxContainer"]
+margin_left = 166.0
+margin_right = 321.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 155, 30 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 16 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/disabled = ExtResource( 8 )
+custom_styles/normal = ExtResource( 9 )
+enabled_focus_mode = 0
+text = "Download"
+icon = ExtResource( 18 )
+
+[node name="Timer" type="Timer" parent="TabSelection/Tabs/Truth Table"]
+wait_time = 0.25
+
 [connection signal="text_entered" from="TabSelection/Tabs/Inspector/ObjectName" to="TabSelection/Tabs/Inspector" method="_on_ObjectName_text_entered"]
 [connection signal="toggled" from="TabSelection/Tabs/Inspector/Value/Value" to="TabSelection/Tabs/Inspector" method="_on_Value_toggled"]
 [connection signal="text_entered" from="TabSelection/Tabs/Inspector/Legs/Value" to="TabSelection/Tabs/Inspector" method="_on_Legs_text_entered"]
 [connection signal="text_entered" from="TabSelection/Tabs/Inspector/Position_x/Value" to="TabSelection/Tabs/Inspector" method="_on_Position_text_entered"]
 [connection signal="text_entered" from="TabSelection/Tabs/Inspector/Position_y/Value" to="TabSelection/Tabs/Inspector" method="_on_Position_text_entered"]
 [connection signal="timeout" from="TabSelection/Tabs/Inspector/Timer" to="TabSelection/Tabs/Inspector" method="_on_refresh"]
+[connection signal="timeout" from="TabSelection/Tabs/Truth Table/Timer" to="TabSelection/Tabs/Truth Table" method="_on_refresh"]

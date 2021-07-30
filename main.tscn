@@ -57,8 +57,7 @@ margin_bottom = 0.0
 [node name="TabContainer" type="TabContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 1.0
-margin_right = -62.0
+margin_right = -60.0
 margin_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -67,7 +66,7 @@ custom_styles/tab_disabled = SubResource( 2 )
 custom_styles/tab_bg = SubResource( 3 )
 custom_styles/panel = SubResource( 4 )
 custom_fonts/font = ExtResource( 7 )
-custom_constants/side_margin = 350
+custom_constants/side_margin = 300
 tab_align = 0
 drag_to_rearrange_enabled = true
 script = ExtResource( 4 )
@@ -76,30 +75,21 @@ __meta__ = {
 }
 
 [node name="New Tab" parent="TabContainer" instance=ExtResource( 2 )]
-anchor_right = 1.0
-anchor_bottom = 1.0
 margin_top = 34.0
 margin_right = 0.0
 margin_bottom = 0.0
-scroll_offset = Vector2( 0, -34 )
 
 [node name="New Tab2" parent="TabContainer" instance=ExtResource( 2 )]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
 margin_top = 34.0
 margin_right = 0.0
 margin_bottom = 0.0
-scroll_offset = Vector2( 0, 0 )
 
 [node name="New Tab3" parent="TabContainer" instance=ExtResource( 2 )]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
 margin_top = 34.0
 margin_right = 0.0
 margin_bottom = 0.0
-scroll_offset = Vector2( 0, 0 )
 
 [node name="+" type="Control" parent="TabContainer"]
 visible = false

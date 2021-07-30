@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://ui/Tab.gd" type="Script" id=1]
 [ext_resource path="res://ui/ActionPanel.tscn" type="PackedScene" id=2]
@@ -9,6 +9,27 @@
 [ext_resource path="res://assets/themes/grabber_hl.tres" type="StyleBox" id=7]
 [ext_resource path="res://assets/themes/grabber_pressed.tres" type="StyleBox" id=8]
 [ext_resource path="res://Assets/Icons/Close.svg" type="Texture" id=9]
+[ext_resource path="res://ui/TabProperties.gd" type="Script" id=10]
+[ext_resource path="res://ui/JSON View.gd" type="Script" id=11]
+[ext_resource path="res://Screenshot from 2021-07-29 14-40-22.png" type="Texture" id=12]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.2, 0.219608, 0.258824, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+content_margin_left = 10.0
+content_margin_right = 5.0
+content_margin_top = 40.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.156863, 0.172549, 0.203922, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.2, 0.219608, 0.258824, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.2, 0.219608, 0.258824, 1 )
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 5 )
@@ -52,19 +73,64 @@ expand_margin_top = 20.0
 content_margin_left = 10.0
 bg_color = Color( 0.129412, 0.145098, 0.168627, 1 )
 
-[node name="Tab" type="GraphEdit"]
-margin_right = 1536.0
-margin_bottom = 900.0
+[node name="Tab" type="HSplitContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 40.0
+margin_bottom = 40.0
+custom_styles/bg = SubResource( 8 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ObjectTree" type="VSplitContainer" parent="."]
+margin_right = 400.0
+margin_bottom = 940.0
+rect_min_size = Vector2( 300, 0 )
+split_offset = 600
+
+[node name="JSON View" type="TextEdit" parent="ObjectTree"]
+margin_right = 400.0
+margin_bottom = 645.0
+rect_min_size = Vector2( 400, 0 )
+custom_styles/normal = SubResource( 7 )
+custom_colors/member_variable_color = Color( 0.686275, 0.666667, 0.388235, 1 )
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+highlight_all_occurrences = true
+smooth_scrolling = true
+wrap_enabled = true
+minimap_draw = true
+caret_blink = true
+script = ExtResource( 11 )
+
+[node name="Tree View" type="Panel" parent="ObjectTree"]
+margin_top = 657.0
+margin_right = 400.0
+margin_bottom = 940.0
+rect_min_size = Vector2( 0, 200 )
+custom_styles/panel = SubResource( 9 )
+
+[node name="Screenshot from 2021-07-29 14-40-22" type="Sprite" parent="ObjectTree"]
+position = Vector2( 472.356, 851.917 )
+texture = ExtResource( 12 )
+
+[node name="Tab" type="GraphEdit" parent="."]
+margin_left = 412.0
+margin_right = 1576.0
+margin_bottom = 940.0
 theme = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
 right_disconnects = true
-scroll_offset = Vector2( -522, -40 )
+scroll_offset = Vector2( -280, -40 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ActionList" type="VBoxContainer" parent="."]
+[node name="ActionList" type="VBoxContainer" parent="Tab"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -79,11 +145,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Action" parent="ActionList" instance=ExtResource( 2 )]
+[node name="Action" parent="Tab/ActionList" instance=ExtResource( 2 )]
 margin_right = 334.0
 margin_bottom = 30.0
 
-[node name="DeleteConfirm" type="ConfirmationDialog" parent="."]
+[node name="DeleteConfirm" type="ConfirmationDialog" parent="Tab"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -100,7 +166,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CreateNew" type="WindowDialog" parent="."]
+[node name="CreateNew" type="WindowDialog" parent="Tab"]
 visible = true
 margin_left = 665.0
 margin_top = 381.0
@@ -115,7 +181,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemList" type="ItemList" parent="CreateNew"]
+[node name="ItemList" type="ItemList" parent="Tab/CreateNew"]
 margin_left = 11.0
 margin_top = 10.0
 margin_right = 183.0
@@ -132,13 +198,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="connection_request" from="." to="." method="_on_Tab_connection_request"]
-[connection signal="copy_nodes_request" from="." to="." method="_on_Tab_copy_nodes_request"]
-[connection signal="delete_nodes_request" from="." to="." method="_on_Tab_delete_nodes_request"]
-[connection signal="disconnection_request" from="." to="." method="_on_Tab_disconnection_request"]
-[connection signal="node_selected" from="." to="." method="_on_Tab_node_selected"]
-[connection signal="node_unselected" from="." to="." method="_on_Tab_node_unselected"]
-[connection signal="paste_nodes_request" from="." to="." method="_on_Tab_paste_nodes_request"]
-[connection signal="popup_request" from="." to="." method="_on_Tab_popup_request"]
-[connection signal="confirmed" from="DeleteConfirm" to="." method="_on_DeleteConfirm_confirmed"]
-[connection signal="item_selected" from="CreateNew/ItemList" to="." method="_on_ItemList_item_selected"]
+[connection signal="connection_request" from="Tab" to="Tab" method="_on_Tab_connection_request"]
+[connection signal="copy_nodes_request" from="Tab" to="Tab" method="_on_Tab_copy_nodes_request"]
+[connection signal="delete_nodes_request" from="Tab" to="Tab" method="_on_Tab_delete_nodes_request"]
+[connection signal="disconnection_request" from="Tab" to="Tab" method="_on_Tab_disconnection_request"]
+[connection signal="node_selected" from="Tab" to="Tab" method="_on_Tab_node_selected"]
+[connection signal="node_unselected" from="Tab" to="Tab" method="_on_Tab_node_unselected"]
+[connection signal="paste_nodes_request" from="Tab" to="Tab" method="_on_Tab_paste_nodes_request"]
+[connection signal="popup_request" from="Tab" to="Tab" method="_on_Tab_popup_request"]
+[connection signal="confirmed" from="Tab/DeleteConfirm" to="Tab" method="_on_DeleteConfirm_confirmed"]
+[connection signal="item_selected" from="Tab/CreateNew/ItemList" to="Tab" method="_on_ItemList_item_selected"]

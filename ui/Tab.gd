@@ -1,6 +1,4 @@
 extends GraphEdit
-
-var is_saved = true
 var offset_data=scroll_offset
 var selected_units:={}
 var clipboard:={}
@@ -137,7 +135,7 @@ func _on_Tab_delete_nodes_request():
 
 func _on_DeleteConfirm_confirmed():	
 	print("del ",selected_units,";")
-	get_node("../../RightTab/TabSelection/Tabs/Inspector").reset_node()
+	get_node("../../../RightTab/TabSelection/Tabs/Inspector").reset_node()
 	for unit in selected_units:
 		for iter in get_connection_list():	
 			if iter.from==unit or iter.to==unit:
