@@ -11,12 +11,12 @@
 [ext_resource path="res://Assets/Icons/Close.svg" type="Texture" id=9]
 [ext_resource path="res://ui/TabProperties.gd" type="Script" id=10]
 [ext_resource path="res://ui/JSON View.gd" type="Script" id=11]
-[ext_resource path="res://Screenshot from 2021-07-29 14-40-22.png" type="Texture" id=12]
+[ext_resource path="res://Screenshot from 2021-07-31 09-58-55.png" type="Texture" id=12]
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.2, 0.219608, 0.258824, 1 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=2]
 content_margin_left = 10.0
 content_margin_right = 5.0
 content_margin_top = 40.0
@@ -28,10 +28,10 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color( 0.2, 0.219608, 0.258824, 1 )
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.2, 0.219608, 0.258824, 1 )
 
-[sub_resource type="Theme" id=1]
+[sub_resource type="Theme" id=4]
 default_font = ExtResource( 5 )
 HScrollBar/icons/decrement = null
 HScrollBar/icons/decrement_highlight = null
@@ -52,11 +52,11 @@ VScrollBar/styles/grabber_pressed = ExtResource( 8 )
 VScrollBar/styles/scroll = null
 VScrollBar/styles/scroll_focus = null
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.156863, 0.172549, 0.203922, 1 )
 border_color = Color( 0.737255, 0.752941, 0.776471, 1 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.2, 0.219608, 0.258824, 0.501961 )
 border_width_left = 2
 border_width_top = 20
@@ -69,7 +69,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 expand_margin_top = 20.0
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=7]
 content_margin_left = 10.0
 bg_color = Color( 0.129412, 0.145098, 0.168627, 1 )
 
@@ -78,7 +78,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 40.0
 margin_bottom = 40.0
-custom_styles/bg = SubResource( 8 )
+custom_styles/bg = SubResource( 1 )
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -94,8 +94,8 @@ split_offset = 600
 margin_right = 400.0
 margin_bottom = 645.0
 rect_min_size = Vector2( 400, 0 )
-custom_styles/normal = SubResource( 7 )
-custom_colors/member_variable_color = Color( 0.686275, 0.666667, 0.388235, 1 )
+custom_styles/normal = SubResource( 2 )
+custom_colors/member_variable_color = Color( 0.52549, 0.0117647, 0.741176, 1 )
 syntax_highlighting = true
 show_line_numbers = true
 draw_tabs = true
@@ -111,18 +111,14 @@ margin_top = 657.0
 margin_right = 400.0
 margin_bottom = 940.0
 rect_min_size = Vector2( 0, 200 )
-custom_styles/panel = SubResource( 9 )
-
-[node name="Screenshot from 2021-07-29 14-40-22" type="Sprite" parent="ObjectTree"]
-position = Vector2( 472.356, 851.917 )
-texture = ExtResource( 12 )
+custom_styles/panel = SubResource( 3 )
 
 [node name="Tab" type="GraphEdit" parent="."]
 margin_left = 412.0
 margin_right = 1576.0
 margin_bottom = 940.0
-theme = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
+theme = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
 right_disconnects = true
 scroll_offset = Vector2( -280, -40 )
 script = ExtResource( 1 )
@@ -174,7 +170,7 @@ margin_right = 858.0
 margin_bottom = 631.0
 custom_icons/close_highlight = ExtResource( 9 )
 custom_icons/close = ExtResource( 4 )
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 6 )
 custom_colors/title_color = Color( 1, 1, 1, 1 )
 window_title = "Quick Add"
 __meta__ = {
@@ -187,7 +183,7 @@ margin_top = 10.0
 margin_right = 183.0
 margin_bottom = 238.0
 rect_min_size = Vector2( 0, 200 )
-custom_styles/bg = SubResource( 4 )
+custom_styles/bg = SubResource( 7 )
 custom_colors/guide_color = Color( 0.156863, 0.172549, 0.203922, 1 )
 custom_colors/font_color_selected = Color( 0.129412, 0.145098, 0.168627, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -197,6 +193,10 @@ icon_mode = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Screenshot from 2021-07-31 09-58-55" type="Sprite" parent="."]
+position = Vector2( 1440.37, 914.628 )
+texture = ExtResource( 12 )
 
 [connection signal="connection_request" from="Tab" to="Tab" method="_on_Tab_connection_request"]
 [connection signal="copy_nodes_request" from="Tab" to="Tab" method="_on_Tab_copy_nodes_request"]
